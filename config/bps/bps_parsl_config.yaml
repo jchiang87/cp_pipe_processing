@@ -1,0 +1,17 @@
+parsl_config:
+  retries: 1
+  monitoring: true
+  checkpoint: false
+  log_level: logging.WARNING
+  executor: WorkQueue
+  nodes_per_block: 2
+  provider: Local
+  worker_options: "--memory=450000"
+
+#parsl_config:
+#  retries: 1
+#  monitoring: true
+#  checkpoint: false
+#  log_level: logging.WARNING
+#  executor: ThreadPool
+#  max_threads: 16
