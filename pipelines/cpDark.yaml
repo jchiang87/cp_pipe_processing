@@ -1,0 +1,34 @@
+description: cp_pipe DARK calibration construction
+tasks:
+  isr:
+    class: lsst.ip.isr.IsrTask
+    config:
+      connections.ccdExposure: 'raw'
+      connections.outputExposure: 'cpDarkIsr'
+      doWrite: true
+      doBrighterFatter: false
+      doDark: false
+      doFlat: false
+      doApplyGains: false
+      doFringe: false
+      doDefect: false
+      python: |
+        config.overscan.doParallelOverscan=True
+        config.overscan.fitType="MEDIAN_PER_ROW"
+  cpDark:
+    class: lsst.cp.pipe.cpDarkTask.CpDarkTask
+    config:
+      connections.inputExp: 'cpDarkIsr'
+      connections.outputExp: 'cpDarkProc'
+  cpDarkCombine:
+    class: lsst.cp.pipe.cpCombine.CalibCombineTask
+    config:
+      connections.inputExpHandles: 'cpDarkProc'
+      connections.outputData: 'dark'
+      calibrationType: 'dark'
+      exposureScaling: "DarkTime"
+      python: config.mask.append("CR")
+contracts:
+  - isr.doDark == False
+  - cpDarkCombine.calibrationType == "dark"
+  - cpDarkCombine.exposureScaling == "DarkTime"
