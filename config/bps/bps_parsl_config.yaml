@@ -4,7 +4,7 @@ parsl_config:
   checkpoint: false
   log_level: logging.WARNING
   executor: WorkQueue
-  nodes_per_block: 2
+  nodes_per_block: 1
   provider: Local
   worker_options: "--memory=450000"
 

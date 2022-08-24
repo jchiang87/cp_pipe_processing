@@ -1,16 +1,14 @@
 includeConfigs:
-  - ${GEN3_WORKFLOW_DIR}/python/desc/gen3_workflow/etc/bps_drp_baseline.yaml
-  - ${HOME}/BOT_gen3_testing/bps_cp_pipe_resource_info.yaml
-  - ${PWD}/bps_parsl_config.yaml
+  - ${CP_PIPE_PROCESSING_DIR}/config/bps/bps_default_configs.yaml
 
 operator: jchiang
-pipelineYaml: "pipelines/findDefects.yaml"
+pipelineYaml: "${CP_PIPE_PROCESSING_DIR}/pipelines/findDefects.yaml"
 instrument: lsst.obs.lsst.LsstCam
 
 payload:
   bot_run: 13162
   weekly: w_2022_34
-  inCollection: u/jchiang/bias_{bot_run}_{weekly}
+  inCollection: u/jchiang/bias_0_{bot_run}_{weekly}
   payloadName: defects_{bot_run}_{weekly}
-  butlerConfig: /sdf/group/lsst/camera/IandT/repo_gen3/BOT_data
-  dataQuery: "instrument='LSSTCam' and exposure.science_program='{bot_run}'"
+  butlerConfig: ${BUTLER_CONFIG}
+  dataQuery: "instrument='LSSTCam' and exposure.science_program='{bot_run}' and exposure.observation_type='bias' and exposure.observation_reason='bias'"

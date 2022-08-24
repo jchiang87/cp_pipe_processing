@@ -1,0 +1,4 @@
+includeConfigs:
+  - ${GEN3_WORKFLOW_DIR}/python/desc/gen3_workflow/etc/bps_drp_baseline.yaml
+  - ${HOME}/BOT_gen3_testing/bps_cp_pipe_resource_info.yaml
+  - ${CP_PIPE_PROCESSING_DIR}/config/bps/bps_parsl_config.yaml
