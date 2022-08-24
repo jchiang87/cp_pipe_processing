@@ -13,7 +13,7 @@ tasks:
       doAssembleCcd: true
       doBias: true
       doVariance: true
-      doLinearize: false
+      doLinearize: true
       doCrosstalk: false
       doBrighterFatter: false
       doDark: true
@@ -21,7 +21,7 @@ tasks:
       doFlat: false
       doFringe: false
       doApplyGains: false
-      doDefect: false
+      doDefect: true
       doNanMasking: true
       doInterpolate: false
       doSaturation: false

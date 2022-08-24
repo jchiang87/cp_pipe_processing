@@ -15,7 +15,7 @@ tasks:
       doFlat: false
       doApplyGains: false
       doFringe: false
-      doDefect: false
+      doDefect: true
       python: |
         config.overscan.doParallelOverscan=True
         config.overscan.fitType="MEDIAN_PER_ROW"
