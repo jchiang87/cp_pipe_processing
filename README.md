@@ -4,17 +4,17 @@
 Contents of a possible setup script:
 ```
 # Use the cvmfs distributions of lsst_distrib.
-weeky_version=w_2022_36  # Set this as desired.
-source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/${weekly_version}/loadLSST.bash
+weekly_version=w_2022_36  # Set this as desired.
+source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/${weekly_version}/loadLSST-ext.bash
 setup lsst_distrib
 
 # Set up the gen3_workflow package for running bps.
-IandT_SW=/fs/ddn/sdf/group/lsst/software/IandT
+IandT_SW=/fs/ddn/sdf/group/lsst/software/IandT/bps_env
 setup -r ${IandT_SW}/gen3_workflow -j
 export BPS_WMS_SERVICE_CLASS=desc.gen3_workflow.ParslService
 
 # The following is needed to have access to the parsl and work_queue modules:
-wq_env=${IandT_SW}/bps_env/wq
+wq_env=${IandT_SW}/wq
 export PYTHONPATH=${wq_env}/lib/python3.10/site-packages:${PYTHONPATH}
 export PATH=${wq_env}/bin:${PATH}
 
