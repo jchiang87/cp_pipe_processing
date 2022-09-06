@@ -3,7 +3,6 @@ includeConfigs:
 
 extraQgraphOptions: "{isr_QgraphOptions}"
 
-operator: jchiang
 pipelineYaml: "${CP_PIPE_DIR}/pipelines/cpBias.yaml"
 instrument: lsst.obs.lsst.LsstCam
 

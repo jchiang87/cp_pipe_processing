@@ -3,7 +3,6 @@ includeConfigs:
 
 extraQgraphOptions: "--config linearityInitial:minLinearAdu=30 --config linearityFinal:minLinearAdu=30"
 
-operator: jchiang
 pipelineYaml: "${CP_PIPE_DIR}/pipelines/cpLinearityCorrected.yaml"
 instrument: lsst.obs.lsst.LsstCam
 

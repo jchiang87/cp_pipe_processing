@@ -1,7 +1,6 @@
 includeConfigs:
   - ${CP_PIPE_PROCESSING_DIR}/config/bps/bps_default_configs.yaml
 
-operator: jchiang
 pipelineYaml: "${CP_PIPE_DIR}/pipelines/cpBfkSolve.yaml"
 instrument: lsst.obs.lsst.LsstCam
 

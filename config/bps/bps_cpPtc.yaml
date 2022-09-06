@@ -3,7 +3,6 @@ includeConfigs:
 
 extraQgraphOptions: "--config isr:overscan.fitType='MEDIAN_PER_ROW' --config isr:doLinearize=True --config isr:doCrosstalk=False"
 
-operator: jchiang
 pipelineYaml: "${CP_PIPE_DIR}/pipelines/cpPtc.yaml"
 instrument: lsst.obs.lsst.LsstCam
 

@@ -3,7 +3,6 @@ includeConfigs:
 
 extraQgraphOptions: "{isr_QgraphOptions} --config isr:doLinearize=True"
 
-operator: jchiang
 pipelineYaml: "${CP_PIPE_DIR}/pipelines/cpFlat.yaml"
 instrument: lsst.obs.lsst.LsstCam
 
