@@ -1,15 +1,17 @@
 includeConfigs:
   - ${CP_PIPE_PROCESSING_DIR}/config/bps/bps_default_configs.yaml
 
+extraQgraphOptions: "--config linearityInitial:minLinearAdu=30 --config linearityFinal:minLinearAdu=30"
+
 operator: jchiang
-pipelineYaml: "${CP_PIPE_PROCESSING_DIR}/pipelines/cpLinearityCorrected.yaml"
+pipelineYaml: "${CP_PIPE_DIR}/pipelines/cpLinearityCorrected.yaml"
 instrument: lsst.obs.lsst.LsstCam
 
 payload:
-  bot_run: 13144
+  ptc_run: 13144
+  template_exposure: 3021120600654
   weekly: w_2022_34
-  inCollection: u/jchiang/ptc_0_{bot_run}_{weekly}
-  payloadName: linearityCorrected_{bot_run}_{weekly}
+  inCollection: u/{operator}/ptc_0_{ptc_run}_{weekly}
+  payloadName: linearityCorrected_{ptc_run}_{weekly}
   butlerConfig: ${BUTLER_CONFIG}
-  dataQuery: "instrument='LSSTCam' and exposure.science_program='{bot_run}'"
-#  and exposure=3021120600654"
+  dataQuery: "instrument='LSSTCam' and exposure.science_program='{ptc_run}' and exposure={template_exposure}"

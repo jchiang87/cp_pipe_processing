@@ -1,0 +1,19 @@
+description: cp_pipe PTC calibration construction.
+parameters:
+    exposureName: cpPtcProc
+    measuredCovariances: cpPtcExtract
+tasks:
+  ptcSolve:
+    class: lsst.cp.pipe.ptc.PhotonTransferCurveSolveTask
+    config:
+      connections.inputCovariances: parameters.measuredCovariances
+      connections.outputPtcDataset: ptc
+      ptcFitType: EXPAPPROXIMATION
+#contracts:
+#  - ptcSolve.maximumRangeCovariancesAstier == ptcExtract.maximumRangeCovariancesAstier
+#subsets:
+#  gainFromFlatPairs:
+#      subset:
+#          - isr
+#          - ptcExtract
+#      description: gain estimation from pairs of flats at the same exposure time.

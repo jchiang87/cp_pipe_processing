@@ -6,7 +6,8 @@ parsl_config:
   executor: WorkQueue
   nodes_per_block: 1
   provider: Local
-  worker_options: "--memory=450000"
+  worker_options: "--memory=110000"   # srun --pty --cpus-per-task=32 bash
+#  worker_options: "--memory=450000"    # srun --pty --exclusive bash
 
 #parsl_config:
 #  retries: 1

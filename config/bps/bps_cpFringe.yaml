@@ -1,14 +1,16 @@
 includeConfigs:
   - ${CP_PIPE_PROCESSING_DIR}/config/bps/bps_default_configs.yaml
 
+extraQgraphOptions: "{isr_QgraphOptions}"
+
 operator: jchiang
-pipelineYaml: "${CP_PIPE_PROCESSING_DIR}/pipelines/cpFringe.yaml"
+pipelineYaml: "${CP_PIPE_DIR}/pipelines/cpFringe.yaml"
 instrument: lsst.obs.lsst.LsstCam
 
 payload:
-  bot_run: 13162
+  b_protocol_run: 13162
   weekly: w_2022_34
-  inCollection: u/jchiang/flat_{bot_run}_{weekly}
-  payloadName: fringe_{bot_run}_{weekly}
+  inCollection: u/{operator}/flat_{b_protocol_run}_{weekly}
+  payloadName: fringe_{b_protocol_run}_{weekly}
   butlerConfig: ${BUTLER_CONFIG}
-  dataQuery: "instrument='LSSTCam' and exposure.science_program='{bot_run}' and exposure.observation_type='flat' and exposure.observation_reason='flat' and physical_filter='SDSSi'"
+  dataQuery: "instrument='LSSTCam' and exposure.science_program='{b_protocol_run}' and exposure.observation_type='flat' and exposure.observation_reason='flat' and physical_filter='SDSSi'"
