@@ -29,12 +29,12 @@ export BUTLER_CONFIG=/sdf/group/rubin/repo/main
 ```
 
 ### Running a pipeline
-One can either use srun or sbatch to allocate resources on a shared node, in which case, the desired number of cpus per task should be set.  Alternatively, one request a node exclusively with the `--exclusive` option (and omitting `--cpus-per-task`).
+One can either use `srun` or `sbatch` to allocate resources on a shared node, in which case, the desired number of cpus per task should be set.  Alternatively, one can request a node exclusively with the `--exclusive` option (and omitting `--cpus-per-task`).
 Here we ask for 32 cpus (with 4G of memory per cpu, by default) on a shared node:
 ```
 $ srun --pty --cpus-per-task=32 bash
 ```
-The default time limit for an allocation is currently 10 hours.  Once the allocation is granted, source the above `setup.sh` file to setup the Rubin code, etc..
+The default time limit for an allocation is currently 10 hours.  Once the allocation is granted, source the above example setup script to set up the Rubin code, etc..
 
 Running a pipeline under `bps` is then as simple as
 ```
