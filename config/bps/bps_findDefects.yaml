@@ -8,8 +8,8 @@ instrument: lsst.obs.lsst.LsstCam
 
 payload:
   b_protocol_run: 13162
-  weekly: w_2022_34
+  weekly: ${WEEKLY}
   inCollection: u/{operator}/bias_0_{b_protocol_run}_{weekly}
   payloadName: defects_{b_protocol_run}_{weekly}
   butlerConfig: ${BUTLER_CONFIG}
-  dataQuery: "instrument='LSSTCam' and exposure.science_program='{b_protocol_run}' and exposure.observation_type='bias' and exposure.observation_reason='bias'"
+  dataQuery: "instrument='LSSTCam' and exposure.science_program='{b_protocol_run}' and ((exposure.observation_type='dark' and exposure.observation_reason='dark') or (exposure.observation_type='flat' and exposure.observation_reason='sflat' and exposure.exposure_time < 40.))"

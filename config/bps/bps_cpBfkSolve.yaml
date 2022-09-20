@@ -7,7 +7,7 @@ instrument: lsst.obs.lsst.LsstCam
 payload:
   ptc_run: 13144
   template_exposure: 3021121200360
-  weekly: w_2022_34
+  weekly: ${WEEKLY}
   inCollection: u/{operator}/ptc_{ptc_run}_{weekly}
   payloadName: bfkSolve_{ptc_run}_{weekly}
   butlerConfig: ${BUTLER_CONFIG}

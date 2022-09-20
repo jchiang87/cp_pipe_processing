@@ -8,7 +8,7 @@ instrument: lsst.obs.lsst.LsstCam
 
 payload:
   b_protocol_run: 13162
-  weekly: w_2022_34
+  weekly: ${WEEKLY}
   inCollection: LSSTCam/raw/all,LSSTCam/calib
   payloadName: bias_0_{b_protocol_run}_{weekly}
   butlerConfig: ${BUTLER_CONFIG}

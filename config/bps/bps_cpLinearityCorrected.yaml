@@ -9,7 +9,7 @@ instrument: lsst.obs.lsst.LsstCam
 payload:
   ptc_run: 13144
   template_exposure: 3021120600654
-  weekly: w_2022_34
+  weekly: ${WEEKLY}
   inCollection: u/{operator}/ptc_0_{ptc_run}_{weekly}
   payloadName: linearityCorrected_{ptc_run}_{weekly}
   butlerConfig: ${BUTLER_CONFIG}
