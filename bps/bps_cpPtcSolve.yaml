@@ -6,14 +6,9 @@ instrument: lsst.obs.lsst.LsstCam
 
 payload:
   ptc_run: 13144
-  exposure_list: (3021120600576..3021120600666)  # Use first 60 for testing.
-  # Exclude saturated exposures that have substantial leakage into parallel
-  # overscan region in R22_S22.
-  excluded_exposures: (3021120700464,3021120700465,3021120700482,3021120700483,3021120700656,3021120700657,3021120700671,3021120700672,3021120700752,3021120700753,3021120700791,3021120700792)
   b_protocol_run: 13162
-  weekly: w_2022_34
+  weekly: ${WEEKLY}
   inCollection: u/{operator}/ptc_0_{ptc_run}_{weekly}
   payloadName: ptcSolve_0_{ptc_run}_{weekly}
   butlerConfig: ${BUTLER_CONFIG}
-#  dataQuery: "instrument='LSSTCam' and exposure.science_program='{ptc_run}' and exposure.observation_type='flat' and exposure.observation_reason='flat' and exposure in {exposure_list}"
-  dataQuery: "instrument='LSSTCam' and exposure.science_program='{ptc_run}' and exposure.observation_type='flat' and exposure.observation_reason='flat' and exposure not in {excluded_exposures}"
+  dataQuery: "instrument='LSSTCam' and exposure.science_program='{ptc_run}' and exposure.observation_type='flat' and exposure.observation_reason='flat'"
