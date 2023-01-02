@@ -8,6 +8,20 @@ site:
   local:
     class: lsst.ctrl.bps.parsl.sites.Local
     cores: 2
+#    monitorEnable: true
+#    monitorFilename: runinfo/monitoring.db
+  slurm_wq_2:
+    class: lsst.ctrl.bps.parsl.sites.work_queue.SlurmWorkQueue
+    nodes_per_block: 1
+    walltime: "0:30:00"
+    cores_per_node: 2
+    qos: normal
+    scheduler_options: |
+      #SBATCH --ntasks=1
+      #SBATCH --cpus-per-task=2
+      #SBATCH --partition=roma
+    exclusive: false
+    worker_options: "--memory=8000"
     monitorEnable: true
     monitorFilename: runinfo/monitoring.db
   slurm_wq_16:
@@ -17,20 +31,7 @@ site:
     cores_per_node: 16
     qos: normal
     scheduler_options: |
-      #SBATCH --ntasks=1
-      #SBATCH --cpus-per-task=16
-    exclusive: false
-    worker_options: "--memory=64000"
-    monitorEnable: true
-    monitorFilename: runinfo/monitoring.db
-  slurm_wq_16_9001:
-    class: lsst.ctrl.bps.parsl.sites.work_queue.SlurmWorkQueue
-    nodes_per_block: 1
-    port: 9001
-    walltime: "2:00:00"
-    cores_per_node: 16
-    qos: normal
-    scheduler_options: |
+      #SBATCH --partition=roma
       #SBATCH --ntasks=1
       #SBATCH --cpus-per-task=16
     exclusive: false
@@ -44,9 +45,24 @@ site:
     cores_per_node: 32
     qos: normal
     scheduler_options: |
+      #SBATCH --partition=roma
       #SBATCH --ntasks=1
       #SBATCH --cpus-per-task=32
     exclusive: false
     worker_options: "--memory=128000"
+    monitorEnable: true
+    monitorFilename: runinfo/monitoring.db
+  slurm_wq_64:
+    class: lsst.ctrl.bps.parsl.sites.work_queue.SlurmWorkQueue
+    nodes_per_block: 1
+    walltime: "4:00:00"
+    cores_per_node: 64
+    qos: normal
+    scheduler_options: |
+      #SBATCH --ntasks=1
+      #SBATCH --cpus-per-task=64
+      #SBATCH --partition=roma
+    exclusive: false
+    worker_options: "--memory=256000"
     monitorEnable: true
     monitorFilename: runinfo/monitoring.db

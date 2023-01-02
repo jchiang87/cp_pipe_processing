@@ -1,6 +1,8 @@
 includeConfigs:
   - ${CP_PIPE_PROCESSING_DIR}/bps/bps_default_configs.yaml
 
+operator: jchiang
+
 extraQgraphOptions: "{isr_QgraphOptions}"
 
 pipelineYaml: "${CP_PIPE_DIR}/pipelines/cpFringe.yaml"
