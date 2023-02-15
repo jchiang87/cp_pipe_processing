@@ -3,7 +3,7 @@ includeConfigs:
 
 operator: jchiang
 
-extraQgraphOptions: "{isr_QgraphOptions} --config isr:doLinearize=False --config isr:doCrosstalk=False"
+extraQgraphOptions: "{isr_QgraphOptions} --config isr:doLinearize=False --config isr:doCrosstalk=False --config ptcExtract:edgeMaskLevel='AMP' --config ptcExtract:numEdgeSuspect=20"
 
 pipelineYaml: "${CP_PIPE_DIR}/pipelines/cpPtc.yaml"
 instrument: ${INSTRUMENT_CLASS}
