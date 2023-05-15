@@ -1,0 +1,15 @@
+pipelineYaml: "${CP_PIPE_DIR}/pipelines/LsstCam/cpDeferredCharge.yaml"
+instrument: lsst.obs.lsst.LsstCam
+
+payload:
+  b_protocol_run: 13162
+  weekly: ${WEEKLY}
+  inCollection: u/{operator}/dark_{b_protocol_run}_w_2022_39
+  payloadName: deferredCharge_{b_protocol_run}_{weekly}
+  butlerConfig: ${BUTLER_CONFIG}
+  dataQuery: "instrument='LSSTCam' and exposure.science_program='{b_protocol_run}' and exposure.observation_type='flat' and exposure.observation_reason='sflat' and detector not in (15, 171)"
+
+includeConfigs:
+  - ${CP_PIPE_PROCESSING_DIR}/bps/ctrl_bps_parsl_config.yaml
+
+computeSite: slurm_wq_64
