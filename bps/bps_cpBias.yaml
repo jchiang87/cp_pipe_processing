@@ -1,17 +1,15 @@
 includeConfigs:
   - ${CP_PIPE_PROCESSING_DIR}/bps/bps_default_configs.yaml
 
-operator: jchiang
+extraQgraphOptions: "{isr_QgraphOptions} --config isr:doDefect=False"
 
-extraQgraphOptions: "{isr_QgraphOptions}"
-
-pipelineYaml: "${CP_PIPE_DIR}/pipelines/cpBias.yaml"
+pipelineYaml: "${CP_PIPE_DIR}/pipelines/${INSTRUMENT_CLASS_NAME}/cpBias.yaml"
 instrument: ${INSTRUMENT_CLASS}
 
 payload:
   b_protocol_run: ${B_PROTOCOL_RUN}
   weekly: ${WEEKLY}
-  inCollection: u/{operator}/defects_{b_protocol_run}_{weekly}
+  inCollection: ${INSTRUMENT_NAME}/raw/all,${INSTRUMENT_NAME}/calib/unbounded
   payloadName: bias_{b_protocol_run}_{weekly}
   butlerConfig: ${BUTLER_CONFIG}
   dataQuery: "instrument='${INSTRUMENT_NAME}' and exposure.science_program='{b_protocol_run}' and exposure.observation_type='bias' and exposure.observation_reason='bias'"

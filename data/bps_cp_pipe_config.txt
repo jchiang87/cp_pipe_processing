@@ -1,0 +1,8 @@
+${CP_PIPE_PROCESSING_DIR}/bps/bps_cpBias.yaml
+${CP_PIPE_PROCESSING_DIR}/bps/bps_cpDark.yaml
+${CP_PIPE_PROCESSING_DIR}/bps/bps_cpFlat.yaml
+${CP_PIPE_PROCESSING_DIR}/bps/bps_findDefects.yaml
+${CP_PIPE_PROCESSING_DIR}/bps/bps_cpPtc.yaml
+
+# The following needs a template exposure :-/
+#${CP_PIPE_PROCESSING_DIR}/bps/bps_cpBfkSolve.yaml

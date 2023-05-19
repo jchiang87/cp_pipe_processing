@@ -5,7 +5,7 @@ operator: jchiang
 
 extraQgraphOptions: "{isr_QgraphOptions}"
 
-pipelineYaml: "${CP_PIPE_DIR}/pipelines/cpFringe.yaml"
+pipelineYaml: "${CP_PIPE_DIR}/pipelines/${INSTRUMENT_CLASS_NAME}/cpFringe.yaml"
 instrument: lsst.obs.lsst.LsstCam
 
 payload:

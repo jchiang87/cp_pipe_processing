@@ -1,16 +1,14 @@
 includeConfigs:
   - ${CP_PIPE_PROCESSING_DIR}/bps/bps_default_configs.yaml
 
-operator: jchiang
-
 extraQgraphOptions: "{isr_QgraphOptions}"
 
-pipelineYaml: "${CP_PIPE_DIR}/pipelines/cpBfkSolve.yaml"
+pipelineYaml: "${CP_PIPE_DIR}/pipelines/${INSTRUMENT_CLASS_NAME}/cpBfkSolve.yaml"
 instrument: ${INSTRUMENT_CLASS}
 
 payload:
   ptc_run: ${PTC_RUN}
-  template_exposure: 3021121200360
+  template_exposure: ${TEMPLATE_EXPOSURE}
   weekly: ${WEEKLY}
   inCollection: u/{operator}/ptc_{ptc_run}_{weekly}
   payloadName: bfkSolve_{ptc_run}_{weekly}
