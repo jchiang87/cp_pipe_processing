@@ -3,7 +3,7 @@ includeConfigs:
 
 operator: jchiang
 
-pipelineYaml: "${CP_PIPE_DIR}/pipelines/LsstCam/cpLinearityCorrected.yaml"
+pipelineYaml: "${CP_PIPE_DIR}/pipelines/${INSTRUMENT_CLASS_NAME}/cpLinearityCorrected.yaml"
 
 instrument: ${INSTRUMENT_CLASS}
 

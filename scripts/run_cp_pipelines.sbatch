@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#SBATCH --partition=roma
+#SBATCH --partition=roma,milano
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=64
 ##SBATCH --exclusive
 #SBATCH --time=20:00:00
-#SBATCH --exclude=sdfrome034
+##SBATCH --exclude=sdfrome034
 
 cd ${PWD}
 source ./setup.sh

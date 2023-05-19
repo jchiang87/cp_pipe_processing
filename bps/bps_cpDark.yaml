@@ -3,9 +3,9 @@ includeConfigs:
 
 # The override for repair.cosmicray.cond3_fac was suggested by Chris Waters
 # in DM-38841.
-extraQgraphOptions: "{isr_QgraphOptions} --config isr:doDefect=False --config cpDark:repair.cosmicray.cond3_fac=4.0"
+extraQgraphOptions: "{isr_QgraphOptions} --config isr:doDefect=False --config cpDark:repair.doCosmicRay=False"
 
-pipelineYaml: "${CP_PIPE_DIR}/pipelines/LsstCam/cpDark.yaml"
+pipelineYaml: "${CP_PIPE_DIR}/pipelines/${INSTRUMENT_CLASS_NAME}/cpDark.yaml"
 instrument: ${INSTRUMENT_CLASS}
 
 payload:

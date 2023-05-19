@@ -4,7 +4,7 @@ includeConfigs:
 
 extraQgraphOptions: "{isr_QgraphOptions} --config isr:doDefect=False --config isr:doLinearize=False --config cpFlatCombine:exposureScaling='Unity'"
 
-pipelineYaml: "${CP_PIPE_DIR}/pipelines/LsstCam/cpFlat.yaml"
+pipelineYaml: "${CP_PIPE_DIR}/pipelines/${INSTRUMENT_CLASS_NAME}/cpFlat.yaml"
 instrument: ${INSTRUMENT_CLASS}
 
 payload:

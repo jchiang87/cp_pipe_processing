@@ -3,7 +3,7 @@ includeConfigs:
 
 extraQgraphOptions: "{isr_QgraphOptions} --config isr:doDefect=False"
 
-pipelineYaml: "${CP_PIPE_DIR}/pipelines/LsstCam/cpBias.yaml"
+pipelineYaml: "${CP_PIPE_DIR}/pipelines/${INSTRUMENT_CLASS_NAME}/cpBias.yaml"
 instrument: ${INSTRUMENT_CLASS}
 
 payload:

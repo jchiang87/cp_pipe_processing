@@ -5,7 +5,7 @@ operator: jchiang
 
 extraQgraphOptions: "{isr_QgraphOptions} --config isr:doSaturation=False"
 
-pipelineYaml: "${CP_PIPE_DIR}/pipelines/LsstCam/findDefects.yaml"
+pipelineYaml: "${CP_PIPE_DIR}/pipelines/${INSTRUMENT_CLASS_NAME}/findDefects.yaml"
 instrument: ${INSTRUMENT_CLASS}
 
 payload:

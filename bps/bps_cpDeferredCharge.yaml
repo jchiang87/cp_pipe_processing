@@ -1,4 +1,4 @@
-pipelineYaml: "${CP_PIPE_DIR}/pipelines/LsstCam/cpDeferredCharge.yaml"
+pipelineYaml: "${CP_PIPE_DIR}/pipelines/${INSTRUMENT_CLASS_NAME}/cpDeferredCharge.yaml"
 instrument: lsst.obs.lsst.LsstCam
 
 payload:

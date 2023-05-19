@@ -29,14 +29,14 @@ if __name__ == '__main__':
     if not os.path.isfile(bps_parsl_config):
         # Make a local copy of the bps parsl config, since it will
         # need adjusting depending on the overall payload.
-        src = os.path.join(os.environ['CP_PIPE_PROCESSING'], 'bps',
+        src = os.path.join(os.environ['CP_PIPE_PROCESSING_DIR'], 'bps',
                            bps_parsl_config)
         shutil.copy(src, bps_parsl_config)
 
     bps_cp_pipe_config = 'bps_cp_pipe_config.txt'
     if not os.path.isfile(bps_cp_pipe_config):
         # Use package default
-        cp_pipe_config = os.path.join(os.environ['CP_PIPE_PROCESSING'],
+        cp_pipe_config = os.path.join(os.environ['CP_PIPE_PROCESSING_DIR'],
                                       'data', bps_cp_pipe_config)
 
     with open(bps_cp_pipe_config) as fobj:
