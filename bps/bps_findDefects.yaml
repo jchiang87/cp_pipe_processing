@@ -1,7 +1,7 @@
 includeConfigs:
-  - ${CP_PIPE_PROCESSING_DIR}/bps/bps_default_configs.yaml
-
-operator: jchiang
+  - ${EO_PIPE_DIR}/bps/bps_htcondor_configs.yaml
+  - ${EO_PIPE_DIR}/bps/bps_qgraph_options.yaml
+#  - ${CP_PIPE_PROCESSING_DIR}/bps/bps_default_configs.yaml
 
 extraQgraphOptions: "{isr_QgraphOptions} --config isr:doSaturation=False"
 
@@ -11,7 +11,7 @@ instrument: ${INSTRUMENT_CLASS}
 payload:
   b_protocol_run: ${B_PROTOCOL_RUN}
   weekly: ${WEEKLY}
-  inCollection: u/{operator}/bias_0_{b_protocol_run}_{weekly}
+  inCollection: u/{operator}/flat_{b_protocol_run}_{weekly}
   payloadName: defects_{b_protocol_run}_{weekly}
   butlerConfig: ${BUTLER_CONFIG}
-  dataQuery: "instrument='${INSTRUMENT_NAME}' and exposure.science_program='{b_protocol_run}' and ((exposure.observation_type='dark' and exposure.observation_reason='dark') or (exposure.observation_type='flat' and exposure.observation_reason in ('sflat', 'sflat_hi', 'sflat_lo') and physical_filter='${HIGH_FLUX_FILTER}'))"
+  dataQuery: "instrument='${INSTRUMENT_NAME}' and exposure.science_program='{b_protocol_run}' and ((exposure.observation_type='dark' and exposure.observation_reason='dark') or (exposure.observation_type='flat' and exposure.observation_reason in ('sflat', 'sflat_hi') and physical_filter='${HIGH_FLUX_FILTER}'))"
